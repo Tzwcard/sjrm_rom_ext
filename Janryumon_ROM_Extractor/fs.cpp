@@ -46,7 +46,7 @@ int run_extract(char *path)
 
 	jrm_rom_header *ptrHeader = (jrm_rom_header*)buffer;
 
-	unsigned long indexLen = sizeof(unsigned long) + ptrHeader->count_index * sizeof(jrm_rom_file_index);
+	unsigned long indexLen = ptrHeader->count_index * sizeof(jrm_rom_file_index);
 	unsigned char *index = new unsigned char [indexLen];
 
 	uncompress(index, &indexLen, (const Bytef*)(buffer + ptrHeader->pos_index), ptrHeader->size_index); // use zlib

@@ -1,3 +1,5 @@
+#pragma once
+
 struct jrm_rom_header
 {
 	char magic[4];

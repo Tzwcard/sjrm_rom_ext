@@ -6,7 +6,7 @@ void get_file_path(char *dest, char *refUnicode)
 	int i, pos = 0;
 	for (i = 0; i < 0x100 && refUnicode[2 * i] != 0; i++)
 	{
-		if (refUnicode[2 * i] > 0x7f)
+		if (refUnicode[2 * i] & 0x80)
 			dest[pos++] = '_';
 		else
 			dest[pos++] = refUnicode[2*i];
